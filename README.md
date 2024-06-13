@@ -1,4 +1,15 @@
-rivate int currentPage = 0;
+ Title="MainWindow" Height="720" Width="1280"
+        WindowState="Maximized">
+    <Grid>
+        <Frame x:Name="MainFrame"/>
+    </Grid>            
+
+MainFrame.Navigate(new AuthorizationPage());
+            MainFrame.NavigationUIVisibility = NavigationUIVisibility.Hidden;
+
+
+
+private int currentPage = 0;
 private int itemsPerPage = 20;
 
 private void UpdateListView()
