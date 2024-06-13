@@ -1,3 +1,38 @@
+rivate int currentPage = 0;
+private int itemsPerPage = 20;
+
+private void UpdateListView()
+{
+    myListView.ItemsSource = YourDataList.Skip(currentPage * itemsPerPage).Take(itemsPerPage).ToList();
+}
+
+private void LeftButton_Click(object sender, RoutedEventArgs e)
+{
+    if (currentPage > 0)
+    {
+        currentPage--;
+        UpdateListView();
+    }
+}
+
+private void RightButton_Click(object sender, RoutedEventArgs e)
+{
+    if ((currentPage + 1) * itemsPerPage < YourDataList.Count)
+    {
+        currentPage++;
+        UpdateListView();
+    } 
+
+
+<ListView Margin="0,100,0,0" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="False" Grid.Row="1" HorizontalAlignment="Center" x:Name="ProductList" BorderBrush="#FEF9EF" Background="#001242" ScrollViewer.VerticalScrollBarVisibility="Visible" 
+                  d:ItemsSource="{d:SampleData ItemCount=3}" Width="1260">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+<StackPanel/>
+</DataTemplate>
+</ListView.ItemTemplate>
+</Listview>
+
 Техническое задание
 1 ВВЕДЕНИЕ
 1.1 Наименование продукта
